@@ -1,0 +1,4 @@
+张景瑞： Neo4j数据库设计，CRUD功能实现
+金成花：设计说明文档，Neo4j数据库CRUD功能实现，MySQL数据库模式设计
+杨雄峰：MySQL数据库搭建，CRUD功能实现
+于洋淼：项目web封装实现，MySQL+pymysql封装，前端页面设计

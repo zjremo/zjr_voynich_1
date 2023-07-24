@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+        <meta charset="utf-8">
+        <title>关系数据库</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- CSS -->
+
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+        <style>
+            body {
+                background: linear-gradient(#7703f4,rgb(135, 93, 181));
+                height: 100vh;
+                display: flex;
+                align-items: center;
+            }
+            {% comment %} body {
+                /*弹性布局 让页面元素垂直+水平居中*/
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                /*让页面始终占浏览器可视区域总高度*/
+                height: 100vh;
+                /*背景渐变色*/
+                background: linear-gradient(#7703f4,rgb(135, 93, 181));
+
+            } {% endcomment %}
+
+            h1 {
+                display: inline-block;
+                margin-top: 60px;
+                padding-bottom: 10px;
+                font-size: 36px;
+                font-weight: 400;
+                color: #FFFFFF;
+                border-bottom: 1px dotted #aaa;
+            }
+            h2 {
+                color: #FFFFFF;
+            }
+            a {
+                display: inline-block;
+                margin-top: 30px;
+                -o-transition: all .2s;
+                -moz-transition: all .2s;
+                -webkit-transition: all .2s;
+                -ms-transition: all .2s;
+            }
+            a:hover { opacity: 0.7; }
+            img {
+                padding: 7px;
+                -moz-border-radius: 5px;
+                -webkit-border-radius: 5px;
+                border-radius: 5px;
+                -moz-box-shadow: 0 1px 3px 0 rgba(0,0,0,.15);
+                -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,.15);
+                box-shadow: 0 1px 3px 0 rgba(0,0,0,.15);
+            }
+            p {
+                margin-top: 15px;
+                color: #FFFFFF;
+            }
+            .bottom {
+                height: 60px;
+            }
+            .new {
+            margin-top: 20%;
+            }
+            .new a{
+            /*overflow: hidden;*/
+            position: relative;
+            padding: 20px 40px;
+            color: #fff;
+            border-radius: 5px;
+            background-color: #7703f4;
+            outline: none;
+            cursor: pointer;
+            /*同样加个过渡*/
+            transition: all 0.5s;
+            font-size: 30px;
+            }
+            .new a:hover {
+            color: #fff;
+            border-radius: 5px;
+            background-color: #7703f4;
+            box-shadow: 0 0 5px #7703f4,0 0 25px #7703f4,0 0 50px #7703f4,0 0 100px #7703f4;
+            }
+        </style>
+
+    </head>
+<body>
+
+        <div class="container">
+            <div class="row">
+                <div class="span10 offset1" >
+                    <center>
+                        <h1>明星关系数据库</h1>
+                    </center>
+                </div>
+            </div>
+
+            <div class="new">
+                <center>
+                    <a href="mysql">进入数据库系统</a>
+                </center>
+            </div>
+        <div class="bottom"></div>
+</body>
+</html>
