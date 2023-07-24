@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ECharts 房屋朝向占比图</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #F0F8FF;
+    }
+
+    #box {
+      margin: 80px auto;
+      width: 1200px;
+      height: 600px;
+    }
+  </style>
+
+  <body>
+    <div id="box"></div>
+  </body>
+  <script src="./js/echarts.min.js"></script>
+  <script>
+    // 初始化实例对象 echarts.init(dom)容器;
+    var myChart = echarts.init(document.querySelector('#box'));
+    // 指定配置项和数据
+  var option = {
+    title: {
+      text: '房屋朝向占比图',
+      left: 'center',
+      // 修改标题为白色
+      textStyle: {
+        color: '#000000',
+		lineHeight: 1050,
+      },
+    },
+    // 颜色设置
+    color: [
+		'#f1707d',
+		'#ef5767',
+		'#ae716e',
+		'#cb8e85',
+		'#cf8878',
+		'#c86f67',
+		'#f1ccb8',
+		'#f2debd',
+		'#b8d38f',
+		'#ddff95',
+		'#ff9b6a',
+		'#f1b8f1',
+		'#d9b8f1',
+		'#f1ccb8',
+		'#f1f1b8',
+		'#b8f1ed',
+		'#b8f1cc',
+		'#e7dbca',
+		'#DA70D6',
+		'#EEE8AA',
+		'#98FB98',
+		'#AFEEEE',
+		'#DB7093',
+		'#FFEFD5',
+		'#FFDAB9',
+		'#CD853F',
+		'#FFC0CB',
+		'#DDA0DD',
+		'#B0E0E6',
+		'#800080',
+		'#FF0000',
+		'#BC8F8F',
+		'#4169E1',
+    ],
+    tooltip: {
+      trigger: 'item',
+      formatter: '{a} <br/>{b} : {d}%',
+    },
+    
+    toolbox: {
+		itemGap : 15,
+		itemSize: 20,
+		show: true,
+		feature: {
+		  dataView: { readOnly: false },
+		  restore: {},
+		  saveAsImage: {}
+		}
+  },
+  legend: {
+		  left: 'center',
+		  top: 'bottom',
+		  // 小图标的宽度和高度
+		  itemWidth: 20,
+		  itemHeight: 10,
+		  // 修改图例组件的颜色和文字为 14 px
+		  textStyle: {
+			color: '#000000',
+			fontSize: '14',
+		  },
+		},
+    series: [
+      {
+        name: '房源占比',
+        type: 'pie',
+        radius: [30, 110],
+        center: ['50%', '50%'],
+        // 修改饼形图的显示模式
+        // roseType: 'radius',
+        // 修改内圆半径和外圆半径，百分比是相对于容器宽度来说的
+        radius: ['10%', '60%'],
+        data: [
+          { value: 47.58, name: '南北' },
+          { value: 38.56, name: '朝南' },
+          { value: 3.83, name: '朝东' },
+          { value: 2.28, name: '朝北' },
+          { value: 2.10, name: '东南' },
+          { value: 1.73, name: '朝西' },
+          { value: 1.46, name: '东西' },
+          { value: 0.82, name: '东北' },
+		  { value: 0.82, name: '西北' },
+          { value: 0.82, name: '西南' },
+          
+        ],
+        label: {
+          fontSize: 15,
+		  show:'true',
+			position:'outside',
+			alignTo : 'edge',
+			edgeDistance : '25%',
+        },
+        labelLine: {
+          // 连接到图形的线长度
+          length: 10,
+          // 连接到文字的线长度
+          length2: 25,
+        },
+      },
+    ],
+  };
+
+
+    myChart.setOption(option);
+  </script>
+</html>

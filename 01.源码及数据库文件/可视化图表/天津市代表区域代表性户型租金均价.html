@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ECharts 代表性户型均价</title>
+  </head>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+	body {
+      background-color: #F0F8FF;
+    }
+    #box {
+      margin: 20px auto;
+      width: 1000px;
+      height: 400px;
+    }
+  </style>
+  <body>
+    <div id="box"></div>
+  </body>
+  <script src="./js/echarts.min.js"></script>
+  <script>
+    // 初始化实例对象 echarts.init(dom)容器;
+    var myChart = echarts.init(document.querySelector('#box'));
+    // 指定配置项和数据
+    var option = {
+      color: ['#f2debd',
+			'#b8d38f',
+			'#ddff95',
+			'#ff9b6a',
+			'#f1b8f1',],
+      title: {
+        text: '天津市代表区域代表性户型租金均价',
+      },
+      tooltip: {trigger: 'axis',},
+      legend: {
+        data: ['1室1厅1卫','2室1厅1卫','2室2厅1卫','3室2厅1卫'],
+      },
+      xAxis: {
+        data: ['南开区', '北辰区', '河西区', '塘沽区', '河北区', '其他区'],
+        axisLine: {
+              // X 轴线的样式设置为不显示
+                show: false,
+            },
+		axisLabel: {
+                // 设置 x 轴标签文字样式
+                // x 轴的文字颜色和大小
+                color: "#A9A9A9",
+                fontSize: "16",
+            },
+      },
+      yAxis: 
+      {
+	    name: '租金均价',
+		nameLocation: 'center',
+		nameRotate: 90, // y轴name旋转90度 使其垂直
+		nameGap: 70,  // y轴name与横纵坐标轴线的间距
+		nameTextStyle:{
+			color: '#A9A9A9',
+			fontSize: '17',
+		},
+        type: 'value',
+        // y 轴文字标签样式
+        axisLabel: {
+          color: '#A9A9A9',
+          fontSize: '12',
+        },
+        axisLine: {
+          // y 轴线条样式
+          lineStyle: {
+            color: '#A9A9A9',
+            width: 1,
+          },
+        },
+        // y 轴分隔线样式
+        splitLine: {
+          lineStyle: {
+            color: '#A9A9A9',
+          },
+        },
+      },
+	  toolbox: {
+		itemGap : 15,
+		itemSize: 20,
+		show: true,
+		feature: {
+		  dataZoom: {
+			yAxisIndex: 'none'
+		  },
+		  dataView: { readOnly: false },
+		  magicType: { type: ['line', 'bar'] },
+		  restore: {},
+		  saveAsImage: {}
+		}
+	},
+	animationEasing: 'elasticOut',
+	animationDelayUpdate: function (idx) {
+		return idx * 5;},
+      series: [
+        {
+          name: '1室1厅1卫',
+          type: 'bar',
+          data: [2111.75, 1288.67, 1897.67, 1484.21, 1762.7, 1345.0],
+		  itemStyle: {
+			  // 修改柱子圆角
+			  barBorderRadius: 10,
+			},
+		  barWidth: '15%',
+		  animationDelay: function (idx) {
+			return idx * 100;
+		},
+        },
+        {
+          name: '2室1厅1卫',
+          type: 'bar',
+          data: [3029.71,1651.43,3125.0,1983.75,2495.69,2126.32],
+		  itemStyle: {
+			  // 修改柱子圆角
+			  barBorderRadius: 10,
+			},
+		  barWidth: '15%',
+		  animationDelay: function (idx) {
+			return idx * 100;
+		},
+        },
+        {
+          name: '2室2厅1卫',
+          type: 'bar',
+          data: [3657.14,1650.0,3800.0,2066.67,3000.0,2075.0],
+		  itemStyle: {
+			  // 修改柱子圆角
+			  barBorderRadius: 10,
+			},
+		  barWidth: '15%',
+		  animationDelay: function (idx) {
+			return idx * 100;
+		},
+        },
+		{
+          name: '3室2厅1卫',
+          type: 'bar',
+          data: [0.0,2400.0,0.0,2500.0,0.0,1900.0],
+		  itemStyle: {
+			  // 修改柱子圆角
+			  barBorderRadius: 10,
+			},
+		  barWidth: '15%',
+		  animationDelay: function (idx) {
+			return idx * 100;
+		},
+        },
+      ],
+    };
+    // 将配置项设置给 echarts 实例对象。
+    myChart.setOption(option);
+  </script>
+</html>

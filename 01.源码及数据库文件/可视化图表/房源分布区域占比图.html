@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ECharts 房源分布区域占比图</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #F0F8FF;
+    }
+
+    #box {
+      margin: 80px auto;
+      width: 1200px;
+      height: 600px;
+    }
+  </style>
+
+  <body>
+    <div id="box"></div>
+  </body>
+  <script src="./js/echarts.min.js"></script>
+  <script>
+    // 初始化实例对象 echarts.init(dom)容器;
+    var myChart = echarts.init(document.querySelector('#box'));
+    // 指定配置项和数据
+  var option = {
+    title: {
+      text: '房源分布区域占比图',
+      left: 'center',
+      // 修改标题为白色
+      textStyle: {
+        color: '#000000',
+		lineHeight: 1100,
+      },
+    },
+    // 颜色设置
+    color: [
+		'#f1707d',
+		'#f15535',
+		'#ef5767',
+		'#ae716e',
+		'#cb8e85',
+		'#cf8878',
+		'#c86f67',
+		'#f1ccb8',
+		'#f2debd',
+		'#b8d38f',
+		'#ddff95',
+		'#ff9b6a',
+		'#f1b8f1',
+		'#d9b8f1',
+		'#f1ccb8',
+		'#f1f1b8',
+		'#b8f1ed',
+		'#b8f1cc',
+		'#e7dbca',
+		'#DA70D6',
+		'#EEE8AA',
+		'#98FB98',
+		'#AFEEEE',
+		'#DB7093',
+		'#FFEFD5',
+		'#FFDAB9',
+		'#CD853F',
+		'#FFC0CB',
+		'#DDA0DD',
+		'#B0E0E6',
+		'#800080',
+		'#FF0000',
+		'#BC8F8F',
+		'#4169E1',
+    ],
+    tooltip: {
+      trigger: 'item',
+      formatter: '{a} <br/>{b} : {d}%',
+    },
+    
+    toolbox: {
+		itemGap : 15,
+		itemSize: 20,
+		show: true,
+		feature: {
+		  dataView: { readOnly: false },
+		  restore: {},
+		  saveAsImage: {}
+		}
+  },
+  legend: {
+          type: 'scroll',
+		  orient: 'vertical',
+		  right: 80,
+		  top: 50,
+		  bottom: 70,
+		  // 小图标的宽度和高度
+		  itemWidth: 20,
+		  itemHeight: 10,
+		  // 修改图例组件的颜色和文字为 14 px
+		  textStyle: {
+			color: '#000000',
+			fontSize: '14',
+		  },
+		},
+    series: [
+      {
+		legendHoverLink : true,
+		cursor : 'pointer',
+        name: '房源占比',
+        type: 'pie',
+        radius: [30, 110],
+        center: ['50%', '50%'],
+        // 修改饼形图的显示模式
+        // roseType: 'radius',
+        // 修改内圆半径和外圆半径，百分比是相对于容器宽度来说的
+        radius: ['10%', '60%'],
+        data: [
+          { value: 11.76, name: '南开区' },
+          { value: 8.57, name: '北辰区' },
+          { value: 8.20, name: '河西区' },
+          { value: 7.93, name: '塘沽区' },
+          { value: 7.29, name: '河北区' },
+          { value: 7.02, name: '其他区' },
+          { value: 6.38, name: '河东区' },
+          { value: 6.11, name: '红桥区' },
+		  { value: 5.83, name: '津南区' },
+          { value: 5.47, name: '西青区' },
+          { value: 5.47, name: '东丽区' },
+          { value: 4.83, name: '和平区' },
+          { value: 3.01, name: '武清区' },
+          { value: 2.28, name: '开发区' },
+          { value: 1.64, name: '宝坻区' },
+          { value: 1.19, name: '商住楼区' },
+		  { value: 1.09, name: '滨海区' },
+          { value: 1.00, name: '静海区' },
+          { value: 1.00, name: '大港区' },
+          { value: 0.82, name: '蓟州区' },
+          { value: 0.64, name: '滨海新区' },
+          { value: 0.55, name: '汉沽区' },
+          { value: 0.46, name: '宁河区' },
+          { value: 0.36, name: '南区' },
+		  { value: 0.18, name: '蓟县区' },
+          { value: 0.18, name: '北区' },
+          { value: 0.09, name: '西区' },
+          { value: 0.09, name: 'AC区' },
+          { value: 0.09, name: '平时光区' },
+          { value: 0.09, name: '一二期区' },
+          { value: 0.09, name: '东区' },
+          { value: 0.09, name: '三期区' },
+		  { value: 0.09, name: '二期区' },
+          { value: 0.09, name: '天成轩区' },
+        ],
+        label: {
+			fontSize: 15,
+		    show:'true',
+			position:'outside',
+			alignTo : 'edge',
+			edgeDistance : '25%',
+        },
+        labelLine: {
+          // 连接到图形的线长度
+          length: 10,
+          // 连接到文字的线长度
+          length2: 25,
+        },
+      },
+    ],
+  };
+
+
+    myChart.setOption(option);
+  </script>
+</html>
